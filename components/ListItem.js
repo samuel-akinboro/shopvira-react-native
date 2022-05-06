@@ -1,12 +1,14 @@
 import React from "react"
 import { Text, View, StyleSheet, TouchableOpacity } from "react-native"
-import Icon from "react-native-vector-icons/FontAwesome"
+import Icon from "react-native-vector-icons/dist/FontAwesome"
 
 const ListItem = ({text, id, deleteItem}) => {
   return (
-    <TouchableOpacity style={styles.container}>
-      <Text style={styles.text}>{text}</Text>
-      <Icon style={styles.text} name='remove' onClick={()=> deleteItem(id)} />
+    <TouchableOpacity>
+      <View style={styles.container}>
+        <Text style={styles.text}>{text}</Text>
+        <Icon style={styles.text} name='remove' onPress={()=> deleteItem(id)} />
+      </View>
     </TouchableOpacity>
   )
 }
