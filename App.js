@@ -3,6 +3,7 @@ import {View, StyleSheet, Alert} from 'react-native'
 import AllLists from './components/AllLists'
 import Header from './components/Header'
 import uuid from 'uuidv4';
+import AddItemForm from './components/AddItemForm';
 
 const App = () => {
   const [ lists, setList ] = useState([
@@ -60,9 +61,20 @@ const App = () => {
     setList((prevState) => prevState.filter((item) => item.id !== id))
   }
 
+  const addItem = (text) => {
+    if(text){
+      setList((prevState) => {
+        return [{id: uuid(), text}, ...prevState]
+      });
+    }
+  }
+
   return (
     <View style={styles.container}>
       <Header />
+      <AddItemForm
+        addItem={addItem}
+      />
       <AllLists 
         data={lists} 
         deleteItem={deleteItem} 

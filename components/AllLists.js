@@ -7,7 +7,13 @@ const AllLists = ({data, deleteItem}) => {
     <FlatList
       style={styles.container} 
       data={data}
-      renderItem={({item})=> <ListItem text={item.text} id={item.id} deleteItem={deleteItem} />} 
+      renderItem={({item})=> 
+        <ListItem 
+          text={item.text} 
+          id={item.id} 
+          deleteItem={deleteItem}
+        />
+      } 
     />
   )
 }
